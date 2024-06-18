@@ -1,0 +1,4 @@
+services:
+  depression_classifier:
+    vectorizer_path: 'model/tfidf.pkl'
+    model_path: 'model/logreg.pkl'

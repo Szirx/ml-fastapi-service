@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-app
+  labels:
+    app: dep-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dep-app
+  template:
+    metadata:
+      labels:
+        app: dep-app
+    spec:
+      containers:
+        - name: myfastapiapp
+          image: szirx/dep-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 2444
+          env:
+            - name: PYTHONUNBUFFERED
+              value: "1"
